@@ -1,0 +1,62 @@
+#!/usr/bin/make -f
+#
+# Copyright 2021 Delphix
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+%:
+	dh $@
+
+override_dh_install:
+	./scripts/fetch-file-from-artifactory.sh \
+		"linux/jdk1.8/OpenJDK8U-jdk_x64_linux_hotspot_8u262b10.tar.gz" \
+		"71a20f823ff7df646b5b8503e59b1c7515b57f2812f0121142c4fc87ddcca5e6" \
+		"debian/tmp/usr/share/host-jdks/jdk/linux_x86/jdk1.8"
+
+	./scripts/fetch-file-from-artifactory.sh \
+		"linux/jdk1.8/OpenJDK8_x64_Linux_jdk8u172-b11.tar.gz" \
+		"c8544a44c946aa971450e18bfa02a0741a986afd3d30c70ded2ea86c9743dac0" \
+		"debian/tmp/usr/share/host-jdks/jdk/linux_x86/jdk1.8_172"
+
+	./scripts/fetch-file-from-artifactory.sh \
+		"linux/jdk1.8/OpenJDK8U-jdk_ppc64le_linux_hotspot_8u262b10.tar.gz" \
+		"ed5cbc0f292abf68923720fa2bd76aab63a0cd92e6d8145f30a4d10135bb8ec3" \
+		"debian/tmp/usr/share/host-jdks/jdk/linux_ppc64le/jdk1.8"
+
+	./scripts/fetch-file-from-artifactory.sh \
+		"aix/jdk1.8/jdk-8.0.0.611-aix-powerpc64.tar.gz" \
+		"545695b4763117225f7b38e628e519d3c54063eed59cbafd189a2c9d57724686" \
+		"debian/tmp/usr/share/host-jdks/jdk/aix_powerpc/jdk1.8"
+
+	./scripts/fetch-file-from-artifactory.sh \
+		"hpux/jdk1.8/jdk-8.0.20-hpux-ia64.tar.gz" \
+		"6f601c0cd8367fd5a4e2aead840fcdd5e9e28d73b704d040573149940779651f" \
+		"debian/tmp/usr/share/host-jdks/jdk/hpux_ia64/jdk1.8"
+
+	./scripts/fetch-file-from-artifactory.sh \
+		"sunos/jdk1.8/OpenJDK8U-jdk_x64_solaris_hotspot_8u262b10.tar.gz" \
+		"5f66e95e784d6ca36ccabab45719413e930db50d436aa123779bc2fce389742a" \
+		"debian/tmp/usr/share/host-jdks/jdk/sunos_sparc/jdk1.8"
+
+	./scripts/fetch-file-from-artifactory.sh \
+		"sunos/jdk1.8/OpenJDK8U-jdk_sparcv9_solaris_hotspot_8u262b10.tar.gz" \
+		"404879c9df52b79652b1e1534e74d0aac90423c6b5efdcb79e44c34cc9f1211c" \
+		"debian/tmp/usr/share/host-jdks/jdk/sunos_x86/jdk1.8"
+
+	./scripts/fetch-file-from-artifactory.sh \
+		"windows/jdk1.8/OpenJDK8U-jdk_x64_windows_hotspot_8u262b10.zip" \
+		"2c02b3d5c69165f636ca9123eddbc641ecdf512807575283cbf433991caeb03a" \
+		"debian/tmp/usr/share/host-jdks/jdk/windows_x86/jdk1.8"
+
+	dh_install --autodest "debian/tmp/*"
