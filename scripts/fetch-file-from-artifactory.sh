@@ -35,7 +35,7 @@ function cleanup() {
 
 ARTIFACTORY_PATH="$1"
 EXPECTED_CKSUM="$2"
-OUTPUT_DIR="$3"
+OUTPUT_PATH="$3"
 
 PREFIX="https://artifactory.delphix.com/artifactory/delphix-java-packages"
 FILENAME="$(basename "$ARTIFACTORY_PATH")"
@@ -55,6 +55,6 @@ ACTUAL_CKSUM="$(sha256sum "$FILENAME" | awk '{print $1}')"
 
 popd &>/dev/null || dir "'popd' failed"
 
-mkdir -p "$OUTPUT_DIR" || die "failed to create output directory"
-mv "$TEMP_DIR/$FILENAME" "$OUTPUT_DIR/$FILENAME" ||
+mkdir -p "$(dirname "$OUTPUT_PATH")" || die "failed to create output directory"
+mv "$TEMP_DIR/$FILENAME" "$OUTPUT_PATH" ||
 	die "failed to copy file into output directory"
