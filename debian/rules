@@ -72,22 +72,22 @@ override_dh_install:
 	./scripts/fetch-file-from-artifactory.sh \
 		"sunos/jdk1.8/OpenJDK8U-jdk_x64_solaris_hotspot_8u282b08.tar.gz" \
 		"90b08b369e2803540cca4857b72bb7e72a8a304f7d67b78bf38fd28adcd9dd24" \
-		"debian/tmp/usr/share/host-jdks/jdk/sunos_sparc/jdk1.8/jdk.tar.gz"
+		"debian/tmp/usr/share/host-jdks/jdk/sunos_x86/jdk1.8/jdk.tar.gz"
 
 	./scripts/fetch-file-from-artifactory.sh \
 		"sunos/jdk1.8/OpenJDK8U-jdk_x64_solaris_hotspot_8u282b08-manifest" \
 		"10daf9c2f73857e9e0f20c8ca3a2d4d7258ea9a6667cc1caae94489489bd81c4" \
-		"debian/tmp/usr/share/host-jdks/jdk/sunos_sparc/jdk1.8/manifest"
+		"debian/tmp/usr/share/host-jdks/jdk/sunos_x86/jdk1.8/manifest"
 
 	./scripts/fetch-file-from-artifactory.sh \
 		"sunos/jdk1.8/OpenJDK8U-jdk_sparcv9_solaris_hotspot_8u282b08.tar.gz" \
 		"e5117c387635d04ff4a575436ce4844a327653d047a1bbafc2bde57083554176" \
-		"debian/tmp/usr/share/host-jdks/jdk/sunos_x86/jdk1.8/jdk.tar.gz"
+		"debian/tmp/usr/share/host-jdks/jdk/sunos_sparc/jdk1.8/jdk.tar.gz"
 
 	./scripts/fetch-file-from-artifactory.sh \
 		"sunos/jdk1.8/OpenJDK8U-jdk_sparcv9_solaris_hotspot_8u282b08-manifest" \
 		"66c766649a6dcfa85ad3e43421bf874700adea769268f615d5a9f2a0e02a3d12" \
-		"debian/tmp/usr/share/host-jdks/jdk/sunos_x86/jdk1.8/manifest"
+		"debian/tmp/usr/share/host-jdks/jdk/sunos_sparc/jdk1.8/manifest"
 
 	./scripts/fetch-file-from-artifactory.sh \
 		"windows/jdk1.8/OpenJDK8U-jdk_x64_windows_hotspot_8u302b08.zip" \
